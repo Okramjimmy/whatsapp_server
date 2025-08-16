@@ -42,7 +42,7 @@ The server is configured to automatically download all media from incoming messa
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Okramjimmy/whatsapp-server.git
+    git clone https://github.com/Okramjimmy/whatsapp_server.git
     cd whatsapp-server
     ```
     *(Replace `your-username` with the actual repository owner's username if you forked it).*
