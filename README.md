@@ -39,8 +39,46 @@ The server is configured to automatically download all media from incoming messa
 
 -   [Go](https://golang.org/doc/install) (version 1.18 or higher) installed on your system.
 -   [Git](https://git-scm.com/downloads) installed on your system.
+-   A C compiler is required for the `go-sqlite3` dependency.
+
+---
+
+## Linux Setup (Debian/Ubuntu)
+
+### Step 1: Install Go and Git
+First, update your package list and install Go and Git.
+```bash
+sudo apt update
+sudo apt install golang-go git -y
+```
+Verify the Go installation:```bash
+go version
+```
+
+### Step 2: Install C Compiler (GCC)
+The `go-sqlite3` library requires a C compiler. You can install the `build-essential` package which includes GCC and other necessary tools.
+```bash
+sudo apt install build-essential -y
+```
+Verify the GCC installation:
+```bash
+gcc --version
+```
+
+### Step 3: Clone and Run
+With the dependencies installed, you can now clone the repository and run the server. CGO is typically enabled by default on Linux, so you don't need to set it manually.
+```bash
+git clone https://github.com/Okramjimmy/whatsapp_server.git
+cd whatsapp_server
+go mod tidy
+go run main.go
+```
+
+---
 
 ## Windows Setup
+
+***Note: If you are not using Windows, you can skip this section.***
 
 If you are running this project on **Windows**, you need to enable **CGO** because the `go-sqlite3` driver depends on a C compiler. Without this, you’ll see the error:
 `Binary was compiled with 'CGO_ENABLED=0', go-sqlite3 requires cgo to work.`
@@ -82,6 +120,8 @@ If you want to build a binary:
 $env:CGO_ENABLED=1
 go build -o whatsapp_server.exe main.go
 ```
+
+---
 
 ## Installation
 
